@@ -264,6 +264,7 @@ export function LuxuryNavbar() {
               z-40
               bg-black/92
               backdrop-blur-2xl
+              pt-40
 
               lg:hidden
             "
@@ -288,6 +289,7 @@ export function LuxuryNavbar() {
                 flex-col
                 justify-center
                 px-8
+                
               "
             >
               {/* NAV ITEMS */}
