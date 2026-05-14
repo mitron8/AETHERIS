@@ -27,7 +27,6 @@ const properties = [
     beds: 6,
     baths: 7,
     sqft: "8200 sq.ft",
-    featured: true,
     image:
       "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop",
   },
@@ -63,18 +62,22 @@ const properties = [
   },
 ];
 
+const duplicatedProperties = [...properties, ...properties];
+
 export default function LuxuryEstateCarousel() {
-  const [active, setActive] = useState(1);
+  const [active, setActive] = useState(0);
   const [cardWidth, setCardWidth] = useState(340);
+
+  const gap = 20;
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 640) {
-        setCardWidth(280);
+        setCardWidth(260);
       } else if (window.innerWidth < 768) {
-        setCardWidth(310);
+        setCardWidth(290);
       } else {
-        setCardWidth(340);
+        setCardWidth(320);
       }
     };
 
@@ -86,7 +89,7 @@ export default function LuxuryEstateCarousel() {
   }, []);
 
   const nextSlide = () => {
-    setActive((prev) => (prev + 1) % properties.length);
+    setActive((prev) => prev + 1);
   };
 
   const prevSlide = () => {
@@ -98,42 +101,54 @@ export default function LuxuryEstateCarousel() {
   useEffect(() => {
     const timer = setInterval(() => {
       nextSlide();
-    }, 4000);
+    }, 5000);
 
     return () => clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    if (active >= properties.length) {
+      const timeout = setTimeout(() => {
+        setActive(0);
+      }, 1400);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [active]);
+
   const translateValue = useMemo(() => {
-    return active * cardWidth;
+    return active * (cardWidth + gap);
   }, [active, cardWidth]);
 
   return (
-    <section className="relative overflow-hidden  bg-[#070707] px-4 py-14 sm:px-6 md:px-8 lg:px-10 lg:py-20">
+    <section className="relative overflow-hidden bg-[#070707] py-14 lg:py-20">
       {/* Background Texture */}
       <div className="absolute inset-0 opacity-[0.04]">
         <div className="h-full w-full bg-[radial-gradient(circle_at_center,#ffffff_1px,transparent_1px)] [background-size:22px_22px]" />
       </div>
 
-      <div className="relative mx-auto flex max-w-[1500px] flex-col gap-12 lg:flex-row lg:items-center">
+      {/* MAIN CONTAINER */}
+      <div className="relative mx-auto flex w-full max-w-[1320px] flex-col gap-12 px-8 sm:px-12 lg:flex-row lg:items-center lg:px-20">
         {/* LEFT CONTENT */}
-        <div className="w-full shrink-0 lg:w-[300px] xl:w-[340px]">
+        <div className="flex w-full shrink-0 flex-col items-start text-left lg:w-[300px] xl:w-[340px]">
           <p className="mb-4 text-[9px] uppercase tracking-[0.35em] text-[#c9a86a] sm:text-[10px]">
             Featured Neighborhoods
           </p>
 
-          <h2 className="max-w-[290px] font-serif text-[34px] leading-[1.05] tracking-[0.03em] text-[#f5f1ea] sm:text-[44px] md:text-[52px] lg:text-[56px]">
+          <h2 className="max-w-[320px] font-heading text-[34px] leading-[1.05] tracking-[-0.04em] text-[#f5f1ea] sm:text-[44px] md:text-[52px] lg:text-[56px]">
             Exceptional Spaces.
             <br />
             Extraordinary Lives.
           </h2>
 
-          <p className="mt-5 max-w-[260px] text-[13px] leading-6 text-[#777] sm:text-[14px]">
+          <p className="mt-5 max-w-[320px] text-[14px] leading-7 text-white/55">
             A curated collection of the world’s most exclusive
-            properties.
+            properties crafted with timeless architecture and
+            cinematic luxury experiences.
           </p>
 
-          <button className="group mt-8 flex items-center gap-4 text-[10px] uppercase tracking-[0.28em] text-[#d1ae72]">
-            VIEW ALL PROPERTIES
+          <button className="group flex mt-4 items-center gap-3 rounded-full border border-[#c6a56a]/40 bg-[#c6a56a]/10 px-6 py-3 text-[10px] font-medium uppercase tracking-[0.28em] text-[#f6d28f] backdrop-blur-xl transition-all duration-500 hover:bg-[#d6b36a] hover:text-black">
+            Explore More
 
             <span className="h-[1px] w-8 bg-[#d1ae72] transition-all duration-500 group-hover:w-14" />
           </button>
@@ -164,19 +179,22 @@ export default function LuxuryEstateCarousel() {
           <div className="overflow-hidden">
             {/* TRACK */}
             <div
-              className="flex gap-5 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+              className="flex gap-5 transition-transform duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
               style={{
                 transform: `translateX(-${translateValue}px)`,
               }}
             >
-              {properties.map((property, index) => {
-                const isActive = index === active;
+              {duplicatedProperties.map((property, index) => {
+                const currentIndex = index % properties.length;
+
+                const isActive =
+                  currentIndex === active % properties.length;
 
                 return (
                   <div
                     key={index}
                     className={`
-                    group relative shrink-0 overflow-hidden rounded-[18px] border transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
+                    group relative shrink-0 overflow-hidden rounded-[18px] border transition-all duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)]
 
                     w-[260px]
                     sm:w-[290px]
@@ -184,8 +202,8 @@ export default function LuxuryEstateCarousel() {
 
                     ${
                       isActive
-                        ? "border-[#c9a86a] scale-[1.02] opacity-100 shadow-[0_0_50px_rgba(201,168,106,0.12)]"
-                        : "border-[#262626] scale-[0.92] opacity-60"
+                        ? "border-[#c9a86a] opacity-100"
+                        : "border-[#262626] opacity-70"
                     }
                   `}
                   >
@@ -208,8 +226,8 @@ export default function LuxuryEstateCarousel() {
                     )}
 
                     {/* CONTENT */}
-                    <div className="absolute bottom-0 left-0 w-full p-4 sm:p-5">
-                      <h3 className="font-serif text-[20px] uppercase tracking-[0.04em] text-[#f5f1ea] sm:text-[24px] md:text-[26px]">
+                    <div className="absolute bottom-0 left-0 w-full p-4 text-left sm:p-5">
+                      <h3 className="font-heading text-[20px] uppercase tracking-[0.04em] text-[#f5f1ea] sm:text-[24px] md:text-[26px]">
                         {property.title}
                       </h3>
 
@@ -234,7 +252,7 @@ export default function LuxuryEstateCarousel() {
                         </div>
                       </div>
 
-                      <div className="mt-4 font-serif text-[22px] text-[#d4b47c] sm:text-[24px]">
+                      <div className="mt-4 font-heading text-[22px] text-[#d4b47c] sm:text-[24px]">
                         {property.price}
                       </div>
                     </div>

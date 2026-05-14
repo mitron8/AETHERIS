@@ -6,7 +6,6 @@ import {
   Menu,
   X,
   ArrowRight,
-  Play,
 } from "lucide-react";
 
 export function LuxuryNavbar() {
@@ -23,30 +22,34 @@ export function LuxuryNavbar() {
 
   return (
     <>
+      {/* ========================= */}
+      {/* NAVBAR */}
+      {/* ========================= */}
+
       <header className="fixed left-0 top-0 z-50 w-full">
-        <div className="flex items-center justify-between px-5 py-5 md:px-10 md:py-8">
+        <div className="mx-auto flex w-full items-center justify-between border-b border-white/5 bg-black/30 px-8 py-4 backdrop-blur-md sm:px-12 md:py-5 lg:px-20">
           {/* ========================= */}
           {/* LOGO */}
           {/* ========================= */}
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             {/* ICON */}
 
             <div
               className="
                 flex
-                h-12
-                w-12
+                h-10
+                w-10
                 items-center
                 justify-center
                 rounded-full
                 border
                 border-[#d6b36a]/40
-                bg-black/20
+                bg-black/30
                 backdrop-blur-xl
               "
             >
-              <div className="h-5 w-5 rotate-45 border border-[#d6b36a]" />
+              <div className="h-4 w-4 rotate-45 border border-[#d6b36a]" />
             </div>
 
             {/* TEXT */}
@@ -54,26 +57,30 @@ export function LuxuryNavbar() {
             <div>
               <h2
                 className="
-                  text-[18px]
-                  font-light
-                  tracking-[0.15em]
+                  font-heading
+                  text-[16px]
+                  font-extralight
+                  tracking-[0.32em]
                   text-[#f8e7c2]
 
-                  md:text-[20px]
+                  md:text-[18px]
                 "
+                style={{
+                  fontWeight: 200,
+                }}
               >
                 AETHERIS
               </h2>
 
               <p
                 className="
-                  -mt-1
-                  text-[10px]
+                  -mt-[2px]
+                  text-[9px]
                   uppercase
-                  tracking-[0.4em]
+                  tracking-[0.42em]
                   text-[#b9975b]
 
-                  md:text-[11px]
+                  md:text-[10px]
                 "
               >
                 Living
@@ -85,7 +92,7 @@ export function LuxuryNavbar() {
           {/* DESKTOP NAV */}
           {/* ========================= */}
 
-          <nav className="hidden items-center gap-14 lg:flex">
+          <nav className="hidden items-center gap-10 xl:gap-12 lg:flex">
             {navItems.map((item) => (
               <a
                 key={item}
@@ -93,10 +100,10 @@ export function LuxuryNavbar() {
                 className="
                   group
                   relative
-                  text-[13px]
+                  text-[11px]
                   uppercase
                   tracking-[0.22em]
-                  text-white/80
+                  text-white/75
                   transition-all
                   duration-300
                   hover:text-[#f6d28f]
@@ -107,7 +114,7 @@ export function LuxuryNavbar() {
                 <span
                   className="
                     absolute
-                    -bottom-3
+                    -bottom-2
                     left-0
                     h-[1px]
                     w-0
@@ -125,7 +132,7 @@ export function LuxuryNavbar() {
           {/* RIGHT SIDE */}
           {/* ========================= */}
 
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-4">
             {/* DESKTOP BUTTON */}
 
             <button
@@ -133,15 +140,16 @@ export function LuxuryNavbar() {
                 group
                 hidden
                 items-center
-                gap-4
+                gap-3
+                rounded-full
                 border
-                border-[#d6b36a]/50
-                bg-black/20
-                px-8
-                py-4
-                text-[12px]
+                border-[#d6b36a]/40
+                bg-black/30
+                px-6
+                py-3
+                text-[10px]
                 uppercase
-                tracking-[0.25em]
+                tracking-[0.26em]
                 text-[#f6d28f]
                 backdrop-blur-xl
                 transition-all
@@ -155,7 +163,7 @@ export function LuxuryNavbar() {
               Book A Viewing
 
               <ArrowRight
-                size={16}
+                size={14}
                 className="
                   transition-transform
                   duration-500
@@ -171,14 +179,14 @@ export function LuxuryNavbar() {
               className="
                 relative
                 flex
-                h-14
-                w-14
+                h-11
+                w-11
                 items-center
                 justify-center
                 rounded-full
                 border
                 border-[#d6b36a]/40
-                bg-black/20
+                bg-black/30
                 text-[#f6d28f]
                 backdrop-blur-xl
                 transition-all
@@ -209,7 +217,7 @@ export function LuxuryNavbar() {
                       duration: 0.3,
                     }}
                   >
-                    <X size={20} />
+                    <X size={18} />
                   </motion.div>
                 ) : (
                   <motion.div
@@ -230,7 +238,7 @@ export function LuxuryNavbar() {
                       duration: 0.3,
                     }}
                   >
-                    <Menu size={20} />
+                    <Menu size={18} />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -264,6 +272,7 @@ export function LuxuryNavbar() {
               z-40
               bg-black/92
               backdrop-blur-2xl
+              pt-32
 
               lg:hidden
             "
@@ -292,7 +301,7 @@ export function LuxuryNavbar() {
             >
               {/* NAV ITEMS */}
 
-              <div className="flex flex-col gap-8">
+              <div className="flex flex-col gap-7">
                 {navItems.map((item, index) => (
                   <motion.a
                     key={item}
@@ -327,20 +336,19 @@ export function LuxuryNavbar() {
                   >
                     <span
                       className="
-                        text-[34px]
+                        font-heading
+                        text-[30px]
+                        font-light
                         leading-none
+                        tracking-[-0.03em]
                         text-[#f5ece0]
                       "
-                      style={{
-                        fontFamily:
-                          "'Cormorant Garamond', serif",
-                      }}
                     >
                       {item}
                     </span>
 
                     <ArrowRight
-                      size={20}
+                      size={18}
                       className="
                         text-[#d6b36a]
                         transition-transform
@@ -367,7 +375,7 @@ export function LuxuryNavbar() {
                   delay: 0.4,
                   duration: 0.7,
                 }}
-                className="mt-16"
+                className="mt-14"
               >
                 <button
                   className="
@@ -376,14 +384,14 @@ export function LuxuryNavbar() {
                     w-full
                     items-center
                     justify-center
-                    gap-4
+                    gap-3
                     rounded-full
                     border
                     border-[#d6b36a]/40
                     bg-[#d6b36a]
                     px-8
-                    py-5
-                    text-[12px]
+                    py-4
+                    text-[11px]
                     uppercase
                     tracking-[0.28em]
                     text-black
@@ -394,7 +402,7 @@ export function LuxuryNavbar() {
                   Book A Viewing
 
                   <ArrowRight
-                    size={18}
+                    size={16}
                     className="
                       transition-transform
                       duration-500
@@ -410,7 +418,7 @@ export function LuxuryNavbar() {
 
                   <p
                     className="
-                      text-[10px]
+                      text-[9px]
                       uppercase
                       tracking-[0.4em]
                       text-[#d6b36a]

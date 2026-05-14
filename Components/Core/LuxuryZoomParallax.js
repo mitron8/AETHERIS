@@ -78,9 +78,10 @@ export default function LuxuryZoomParallax() {
 	return (
 		<section
 			ref={container}
-			className=" hidden md:block relative h-[300vh] bg-[#050505]"
+			className="hidden md:block relative h-[300vh] bg-[#050505]"
 		>
 			<div className="sticky top-0 h-screen overflow-hidden">
+
 				{/* BACKGROUND */}
 				<div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-black to-black" />
 
@@ -175,25 +176,31 @@ export default function LuxuryZoomParallax() {
 				<div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle,transparent_40%,rgba(0,0,0,0.92)_100%)]" />
 
 				{/* LUXURY TEXT */}
-				<div className="pointer-events-none absolute bottom-16 left-1/2 z-50 w-full max-w-7xl -translate-x-1/2 px-6">
-					<div className="max-w-2xl">
-						<p className="mb-4 text-xs uppercase tracking-[0.45em] text-[#c8a46b]">
-							Beyond Architecture
-						</p>
+				<div className="pointer-events-none absolute bottom-16 left-0 z-50 w-full">
+					<div className="mx-auto w-full max-w-[1320px] px-8 sm:px-12 lg:px-20">
 
-						<h1 className="font-serif text-5xl leading-[0.9] text-white md:text-8xl">
-							Transcend
-							<br />
-							The Ordinary.
-						</h1>
+						<div className="max-w-[640px]">
 
-						<p className="mt-6 max-w-lg text-base leading-relaxed text-white/70">
-							Experience cinematic luxury living crafted with
-							timeless elegance and immersive architectural
-							storytelling.
-						</p>
+							<p className="mb-4 text-xs uppercase tracking-[0.45em] text-[#c8a46b]">
+								Beyond Architecture
+							</p>
+
+							<h1 className="font-serif text-5xl leading-[0.9] text-white md:text-8xl">
+								Transcend
+								<br />
+								The Ordinary.
+							</h1>
+
+							<p className="mt-6 max-w-lg text-base leading-relaxed text-white/70">
+								Experience cinematic luxury living crafted with
+								timeless elegance and immersive architectural
+								storytelling.
+							</p>
+
+						</div>
 					</div>
 				</div>
+
 			</div>
 		</section>
 	);

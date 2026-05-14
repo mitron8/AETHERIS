@@ -21,9 +21,9 @@ export default function LuxuryScrollSection() {
 
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.8,
+      duration: 0.5,
       smoothWheel: true,
-      lerp: 0.08,
+      lerp: 0.14,
     });
 
     function raf(time) {
@@ -52,7 +52,7 @@ export default function LuxuryScrollSection() {
   // =========================
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    if (latest >= 0.98) {
+    if (latest >= 0.5) {
       setLocked(true);
     }
   });
@@ -70,7 +70,7 @@ export default function LuxuryScrollSection() {
   const rawY = useTransform(
     scrollYProgress,
     [0, 1],
-    [180, 0]
+    [90, 0]
   );
 
   const rawOpacity = useTransform(
@@ -86,24 +86,24 @@ export default function LuxuryScrollSection() {
   const scale = useSpring(
     locked ? 1 : rawScale,
     {
-      stiffness: 80,
-      damping: 20,
+      stiffness: 120,
+      damping: 18,
     }
   );
 
   const y = useSpring(
     locked ? 0 : rawY,
     {
-      stiffness: 80,
-      damping: 20,
+      stiffness: 120,
+      damping: 18,
     }
   );
 
   const opacity = useSpring(
     locked ? 1 : rawOpacity,
     {
-      stiffness: 80,
-      damping: 20,
+      stiffness: 120,
+      damping: 18,
     }
   );
 
@@ -120,7 +120,7 @@ export default function LuxuryScrollSection() {
   const cardY = useTransform(
     scrollYProgress,
     [0, 1],
-    [120, 0]
+    [60, 0]
   );
 
   return (
@@ -128,7 +128,7 @@ export default function LuxuryScrollSection() {
       ref={sectionRef}
       className="
         relative
-        h-[300vh]
+        h-[220vh]
         bg-[#050505]
       "
     >
@@ -145,8 +145,9 @@ export default function LuxuryScrollSection() {
           flex
           items-center
           justify-center
-          px-4
-          md:px-8
+          px-8
+          sm:px-12
+          lg:px-20
         "
       >
         {/* ========================= */}
@@ -211,7 +212,7 @@ export default function LuxuryScrollSection() {
             relative
             z-20
             w-full
-            max-w-7xl
+            max-w-[1320px]
             rounded-[32px]
             border
             border-[#c89e5030]
@@ -259,8 +260,8 @@ export default function LuxuryScrollSection() {
 
               {/* LABEL */}
 
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-2 h-2 rounded-full bg-[#c89e50]" />
+              <div className="mb-6 flex items-center gap-3">
+                <div className="h-2 w-2 rounded-full bg-[#c89e50]" />
 
                 <p
                   className="
@@ -278,12 +279,12 @@ export default function LuxuryScrollSection() {
 
               <h1
                 className="
+                  mb-8
                   text-[42px]
-                  md:text-[64px]
-                  lg:text-[92px]
                   leading-none
                   text-[#f5ece0]
-                  mb-8
+                  md:text-[64px]
+                  lg:text-[92px]
                 "
                 style={{
                   fontFamily: "'Cormorant Garamond', serif",
@@ -298,12 +299,12 @@ export default function LuxuryScrollSection() {
 
               <p
                 className="
-                  text-white/55
-                  text-sm
-                  md:text-base
-                  leading-8
-                  max-w-xl
                   mb-10
+                  max-w-xl
+                  text-sm
+                  leading-8
+                  text-white/55
+                  md:text-base
                 "
               >
                 Experience timeless architecture premium interiors and
@@ -316,17 +317,17 @@ export default function LuxuryScrollSection() {
               <div className="flex flex-wrap gap-5">
                 <button
                   className="
-                    px-8
-                    py-4
                     rounded-full
                     border
                     border-[#c89e5070]
                     bg-[#c89e50]
-                    text-black
-                    uppercase
-                    tracking-[0.25em]
+                    px-8
+                    py-4
                     text-xs
                     font-medium
+                    uppercase
+                    tracking-[0.25em]
+                    text-black
                     transition-all
                     duration-500
                     hover:scale-105
@@ -338,17 +339,17 @@ export default function LuxuryScrollSection() {
 
                 <button
                   className="
-                    px-8
-                    py-4
                     rounded-full
                     border
                     border-[#c89e5030]
                     bg-white/[0.03]
-                    backdrop-blur-md
-                    text-[#c89e50]
+                    px-8
+                    py-4
+                    text-xs
                     uppercase
                     tracking-[0.25em]
-                    text-xs
+                    text-[#c89e50]
+                    backdrop-blur-md
                     transition-all
                     duration-500
                     hover:bg-white/10
@@ -367,8 +368,8 @@ export default function LuxuryScrollSection() {
               className="
                 relative
                 h-[350px]
-                md:h-[700px]
                 overflow-hidden
+                md:h-[700px]
               "
             >
               <motion.img
@@ -378,8 +379,8 @@ export default function LuxuryScrollSection() {
                 src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2070&auto=format&fit=crop"
                 alt="Luxury Home"
                 className="
-                  w-full
                   h-full
+                  w-full
                   object-cover
                 "
               />
@@ -398,25 +399,25 @@ export default function LuxuryScrollSection() {
                   absolute
                   bottom-6
                   left-6
-                  md:left-10
-                  md:bottom-10
                   max-w-[280px]
                   rounded-[24px]
                   border
                   border-[#c89e5030]
                   bg-black/40
-                  backdrop-blur-xl
                   p-5
+                  backdrop-blur-xl
+                  md:bottom-10
+                  md:left-10
                   md:p-6
                 "
               >
                 <p
                   className="
+                    mb-3
                     text-[10px]
                     uppercase
                     tracking-[0.3em]
                     text-[#c89e50]
-                    mb-3
                   "
                 >
                   Premium Collection
@@ -424,10 +425,10 @@ export default function LuxuryScrollSection() {
 
                 <h3
                   className="
+                    mb-3
                     text-[28px]
                     leading-none
                     text-[#f5ece0]
-                    mb-3
                   "
                   style={{
                     fontFamily: "'Cormorant Garamond', serif",
@@ -438,7 +439,7 @@ export default function LuxuryScrollSection() {
                   Luxury Villas
                 </h3>
 
-                <p className="text-white/50 text-sm leading-7">
+                <p className="text-sm leading-7 text-white/50">
                   Discover iconic homes crafted with timeless elegance and
                   architectural excellence.
                 </p>

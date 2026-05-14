@@ -62,11 +62,20 @@ const properties = [
     interior:
       "https://images.unsplash.com/photo-1600210491369-e753d80a41f3?q=80&w=1200",
   },
+  {
+    id: "7",
+    title: "Skyline Signature Tower",
+    location: "New York, USA",
+    image:
+      "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?q=80&w=1200",
+    interior:
+      "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?q=80&w=1200",
+  },
 ];
 
 const col1 = properties.slice(0, 2);
-const col2 = properties.slice(2, 4);
-const col3 = properties.slice(4, 6);
+const col2 = properties.slice(2, 5);
+const col3 = properties.slice(5, 7);
 
 export default function ExecutiveImpactCarousel() {
   const containerRef = useRef(null);
@@ -80,7 +89,7 @@ export default function ExecutiveImpactCarousel() {
 
         columns.forEach((column) => {
           gsap.to(column, {
-            yPercent: 20,
+            yPercent: 10,
             ease: "none",
             scrollTrigger: {
               trigger: column,
@@ -99,19 +108,25 @@ export default function ExecutiveImpactCarousel() {
   }, []);
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#0A0A0A] py-24 text-white">
+    <section className="relative w-full overflow-hidden bg-[#0A0A0A] py-24 pb-40 text-white">
+
       {/* Glow Effects */}
+
       <div className="absolute left-0 top-0 h-[500px] w-[500px] rounded-full bg-white/5 blur-[120px]" />
+
       <div className="absolute bottom-0 right-0 h-[400px] w-[400px] rounded-full bg-[#C29B6B]/10 blur-[120px]" />
 
       {/* Heading */}
+
       <div className="relative z-10 mx-auto mb-20 max-w-7xl px-6 text-center">
+
         <p className="mb-4 text-sm uppercase tracking-[0.35em] text-[#c9a86a]">
           Premium Collection
         </p>
 
         <h2 className="mx-auto max-w-5xl text-4xl font-light leading-tight md:text-6xl">
           Crafted Luxury Living
+
           <span className="mt-3 block text-neutral-500">
             With Timeless Architecture
           </span>
@@ -119,12 +134,15 @@ export default function ExecutiveImpactCarousel() {
       </div>
 
       {/* Columns */}
+
       <div
         ref={containerRef}
-        className="relative z-10 grid grid-cols-1 gap-10 px-4 md:grid-cols-3 md:px-10"
+        className="relative z-10 mx-auto grid max-w-[1320px] grid-cols-1 gap-8 px-8 sm:px-12 md:grid-cols-3 lg:px-20"
       >
         <Column items={col1} reverse />
+
         <Column items={col2} />
+
         <Column items={col3} reverse />
       </div>
     </section>
@@ -148,9 +166,13 @@ function Column({ items, reverse }) {
 function Card({ item }) {
   return (
     <div className="group relative overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.03] backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-white/20">
+
       {/* Image Wrapper */}
+
       <div className="relative h-[500px] w-full overflow-hidden">
+
         {/* Main Image */}
+
         <img
           src={item.image}
           alt={item.title}
@@ -158,6 +180,7 @@ function Card({ item }) {
         />
 
         {/* Hover Image */}
+
         <img
           src={item.interior}
           alt={item.title}
@@ -165,16 +188,20 @@ function Card({ item }) {
         />
 
         {/* Gradient */}
+
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
       </div>
 
       {/* Content */}
+
       <div className="absolute bottom-0 left-0 z-10 w-full p-6">
+
         <p className="mb-3 text-xs uppercase tracking-[0.3em] text-neutral-300">
           {item.location}
         </p>
 
         <div className="flex items-end justify-between gap-4">
+
           <h3 className="max-w-[80%] text-2xl font-light leading-snug md:text-3xl">
             {item.title}
           </h3>
@@ -186,7 +213,9 @@ function Card({ item }) {
       </div>
 
       {/* Hover Shine */}
+
       <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+
         <div className="absolute -left-20 top-0 h-full w-32 rotate-12 bg-white/10 blur-2xl" />
       </div>
     </div>

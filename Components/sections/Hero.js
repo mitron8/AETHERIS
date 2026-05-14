@@ -1,15 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden bg-black">
-      
-     
+
       {/* BACKGROUND IMAGE */}
-    
       <motion.div
         initial={{ scale: 1.12 }}
         animate={{ scale: 1.05 }}
@@ -33,10 +31,10 @@ export default function Hero() {
       {/* ========================================= */}
       {/* MAIN CONTENT */}
       {/* ========================================= */}
-      <div className="relative z-20 mx-auto flex w-full max-w-[1320px] items-center px-6 sm:px-10 lg:px-16">
-        
+      <div className="relative z-20 mx-auto flex w-full max-w-[1320px] items-center px-8 sm:px-12 lg:px-20">
+
         {/* LEFT SIDE */}
-        <div className="max-w-[620px]">
+        <div className="w-full max-w-[640px]">
 
           {/* TOP LABEL */}
           <motion.div
@@ -45,9 +43,9 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
             className="mb-6 flex items-center gap-4"
           >
-            <div className="h-[1px] mt-20  w-8 bg-[#c6a56a]" />
+            <div className="mt-25 h-[1px] w-8 shrink-0 bg-[#c6a56a]" />
 
-            <p className="text-[9px] mt-20  font-medium uppercase tracking-[0.38em] text-[#c6a56a]">
+            <p className="mt-25 text-[9px] font-medium uppercase tracking-[0.38em] text-[#c6a56a]">
               Beyond Architecture
             </p>
           </motion.div>
@@ -108,8 +106,6 @@ export default function Hero() {
                 className="transition-transform duration-500 group-hover:translate-x-1"
               />
             </button>
-
-            
           </motion.div>
 
           {/* STATS */}

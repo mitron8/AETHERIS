@@ -39,10 +39,6 @@ export default function CinematicLuxuryRoad() {
   const pathRef = useRef(null);
 
   useEffect(() => {
-    // =========================
-    // LENIS
-    // =========================
-
     const lenis = new Lenis({
       duration: 1.8,
       smoothWheel: true,
@@ -57,10 +53,6 @@ export default function CinematicLuxuryRoad() {
 
     gsap.ticker.add(raf);
     gsap.ticker.lagSmoothing(0);
-
-    // =========================
-    // ROAD DRAW
-    // =========================
 
     const path = pathRef.current;
 
@@ -85,10 +77,6 @@ export default function CinematicLuxuryRoad() {
       });
     }
 
-    // =========================
-    // HERO
-    // =========================
-
     gsap.fromTo(
       ".hero-content",
       {
@@ -102,10 +90,6 @@ export default function CinematicLuxuryRoad() {
         ease: "expo.out",
       }
     );
-
-    // =========================
-    // CARDS
-    // =========================
 
     gsap.utils.toArray(".checkpoint-card").forEach((card) => {
       gsap.fromTo(
@@ -134,10 +118,6 @@ export default function CinematicLuxuryRoad() {
       );
     });
 
-    // =========================
-    // ROAD GLOW
-    // =========================
-
     gsap.to(".road-glow", {
       opacity: 0.15,
       duration: 3,
@@ -165,9 +145,7 @@ export default function CinematicLuxuryRoad() {
         text-white
       "
     >
-      {/* ========================= */}
       {/* BACKGROUND */}
-      {/* ========================= */}
 
       <div
         className="
@@ -208,11 +186,10 @@ export default function CinematicLuxuryRoad() {
         }}
       />
 
-      {/* ========================= */}
       {/* CONTENT */}
-      {/* ========================= */}
 
       <div className="relative z-20">
+
         {/* HERO */}
 
         <section
@@ -267,9 +244,7 @@ export default function CinematicLuxuryRoad() {
           />
         </section>
 
-        {/* ========================= */}
         {/* ROAD SECTION */}
-        {/* ========================= */}
 
         <section
           className="
@@ -299,8 +274,6 @@ export default function CinematicLuxuryRoad() {
               className="w-full h-full"
               fill="none"
             >
-              {/* SHADOW */}
-
               <path
                 d="M350 0 C140 320, 560 620, 350 980 C140 1320, 560 1680, 350 2200"
                 stroke="#1a120a"
@@ -308,16 +281,12 @@ export default function CinematicLuxuryRoad() {
                 strokeLinecap="round"
               />
 
-              {/* BASE */}
-
               <path
                 d="M350 0 C140 320, 560 620, 350 980 C140 1320, 560 1680, 350 2200"
                 stroke="#2e1e10"
                 strokeWidth="20"
                 strokeLinecap="round"
               />
-
-              {/* GLOW */}
 
               <path
                 className="road-glow"
@@ -331,8 +300,6 @@ export default function CinematicLuxuryRoad() {
                 }}
               />
 
-              {/* ACTIVE */}
-
               <path
                 ref={pathRef}
                 d="M350 0 C140 320, 560 620, 350 980 C140 1320, 560 1680, 350 2200"
@@ -344,8 +311,6 @@ export default function CinematicLuxuryRoad() {
                     "drop-shadow(0 0 8px rgba(240,192,106,0.9))",
                 }}
               />
-
-              {/* DASH */}
 
               <path
                 d="M350 0 C140 320, 560 620, 350 980 C140 1320, 560 1680, 350 2200"
@@ -359,7 +324,7 @@ export default function CinematicLuxuryRoad() {
 
           {/* CHECKPOINTS */}
 
-          <div className="space-y-40 md:space-y-56">
+          <div className="mx-auto max-w-[1320px] space-y-36 md:space-y-44 px-8 sm:px-12 lg:px-20">
             {checkpoints.map((item, i) => (
               <div
                 key={i}
@@ -367,11 +332,9 @@ export default function CinematicLuxuryRoad() {
                   relative
                   flex
                   w-full
-
-                  ${
-                    item.align === "right"
-                      ? "justify-end"
-                      : "justify-start"
+                  ${item.align === "right"
+                    ? "justify-end"
+                    : "justify-start"
                   }
                 `}
               >
@@ -380,8 +343,8 @@ export default function CinematicLuxuryRoad() {
                     checkpoint-card
                     relative
                     w-full
-                    max-w-[340px]
-                    md:max-w-[420px]
+                    max-w-[300px]
+                    md:max-w-[360px]
                     rounded-[28px]
                     border
                     border-[#c89e5030]
@@ -418,12 +381,10 @@ export default function CinematicLuxuryRoad() {
                       absolute
                       top-[46px]
                       h-px
-                      w-24
-
-                      ${
-                        item.align === "left"
-                          ? "left-full bg-gradient-to-r from-[#c89e50]/60 to-transparent"
-                          : "right-full bg-gradient-to-l from-[#c89e50]/60 to-transparent"
+                      w-16
+                      ${item.align === "left"
+                        ? "left-full bg-gradient-to-r from-[#c89e50]/60 to-transparent"
+                        : "right-full bg-gradient-to-l from-[#c89e50]/60 to-transparent"
                       }
                     `}
                   />
@@ -436,11 +397,9 @@ export default function CinematicLuxuryRoad() {
                       items-center
                       gap-4
                       mb-6
-
-                      ${
-                        item.align === "right"
-                          ? "justify-end"
-                          : ""
+                      ${item.align === "right"
+                        ? "justify-end"
+                        : ""
                       }
                     `}
                   >
@@ -495,11 +454,9 @@ export default function CinematicLuxuryRoad() {
                     className={`
                       flex
                       mb-4
-
-                      ${
-                        item.align === "right"
-                          ? "justify-end"
-                          : ""
+                      ${item.align === "right"
+                        ? "justify-end"
+                        : ""
                       }
                     `}
                   >
@@ -526,16 +483,14 @@ export default function CinematicLuxuryRoad() {
 
                   <h2
                     className={`
-                      text-[28px]
-                      md:text-[38px]
+                      text-[24px]
+                      md:text-[32px]
                       leading-tight
                       text-[#f5ece0]
                       mb-4
-
-                      ${
-                        item.align === "right"
-                          ? "text-right"
-                          : ""
+                      ${item.align === "right"
+                        ? "text-right"
+                        : ""
                       }
                     `}
                     style={{
@@ -554,11 +509,9 @@ export default function CinematicLuxuryRoad() {
                       md:text-base
                       leading-8
                       text-white/50
-
-                      ${
-                        item.align === "right"
-                          ? "text-right"
-                          : ""
+                      ${item.align === "right"
+                        ? "text-right"
+                        : ""
                       }
                     `}
                   >
@@ -570,19 +523,17 @@ export default function CinematicLuxuryRoad() {
           </div>
         </section>
 
-        {/* ========================= */}
         {/* CTA */}
-        {/* ========================= */}
 
         <section
           className="
-            flex
-            flex-col
-            items-center
-            pb-28
-            px-6
-            text-center
-          "
+    flex
+    flex-col
+    items-center
+    pb-16
+    px-1
+    text-center
+  "
         >
           <div
             className="
@@ -591,7 +542,7 @@ export default function CinematicLuxuryRoad() {
               bg-gradient-to-b
               from-transparent
               to-[#c89e50]
-              mb-8
+              mb-20
             "
           />
 
@@ -601,7 +552,7 @@ export default function CinematicLuxuryRoad() {
               uppercase
               tracking-[0.35em]
               text-[#c89e50]
-              mb-6
+              mb-8
             "
           >
             Begin your journey
@@ -622,7 +573,6 @@ export default function CinematicLuxuryRoad() {
               duration-500
               bg-white/[0.03]
               backdrop-blur-md
-
               hover:bg-[#c89e50]
               hover:text-black
               hover:scale-105

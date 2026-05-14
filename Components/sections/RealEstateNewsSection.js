@@ -35,7 +35,6 @@ export default function RealEstateNewsSection() {
   return (
     <section className="relative overflow-hidden bg-[#050505] py-24 md:py-32">
       {/* BACKGROUND */}
-
       <div
         className="absolute inset-0 opacity-[0.03]"
         style={{
@@ -46,7 +45,6 @@ export default function RealEstateNewsSection() {
       />
 
       {/* GOLD GLOW */}
-
       <div
         className="absolute inset-0"
         style={{
@@ -55,9 +53,9 @@ export default function RealEstateNewsSection() {
         }}
       />
 
-      <div className="relative z-20 mx-auto max-w-7xl px-5 md:px-8">
+      {/* MAIN CONTAINER */}
+      <div className="relative z-20 mx-auto w-full max-w-[1320px] px-8 sm:px-12 lg:px-20">
         {/* TOP */}
-
         <motion.div
           initial={{
             opacity: 0,
@@ -74,33 +72,25 @@ export default function RealEstateNewsSection() {
           viewport={{
             once: true,
           }}
-          className="mb-20 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between"
+          className="mb-20 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between"
         >
+          {/* LEFT */}
           <div>
-            <p
-              className="
-                mb-5
-                text-[10px]
-                uppercase
-                tracking-[0.35em]
-                text-[#c89e50]
-              "
-            >
+            <p className="mb-5 text-[10px] uppercase tracking-[0.35em] text-[#c89e50]">
               AETHERIS Living Journal
             </p>
 
             <h2
               className="
-                max-w-4xl
+                max-w-[720px]
+                font-heading
                 text-[42px]
-                leading-none
+                leading-[0.95]
+                tracking-[-0.04em]
                 text-[#f5ece0]
                 md:text-[70px]
                 lg:text-[88px]
               "
-              style={{
-                fontFamily: "'Cormorant Garamond', serif",
-              }}
             >
               Real Estate
               <br />
@@ -108,22 +98,22 @@ export default function RealEstateNewsSection() {
             </h2>
           </div>
 
+          {/* RIGHT */}
           <p
             className="
-              max-w-md
-              text-sm
-              leading-8
-              text-white/50
-              md:text-base
+              max-w-[500px]
+              text-[14px]
+              leading-7
+              text-white/55
             "
           >
-            Explore the latest luxury property trends, market movements and
-            design insights curated by AETHERIS Living.
+            Explore the latest luxury property trends, market
+            movements and design insights curated by AETHERIS
+            Living.
           </p>
         </motion.div>
 
         {/* NEWS LIST */}
-
         <div className="space-y-5">
           {newsData.map((item, index) => (
             <motion.div
@@ -163,13 +153,12 @@ export default function RealEstateNewsSection() {
               "
             >
               {/* TOP LINE */}
-
               <div
                 className="
                   absolute
-                  top-0
                   left-10
                   right-10
+                  top-0
                   h-px
                   bg-gradient-to-r
                   from-transparent
@@ -192,7 +181,6 @@ export default function RealEstateNewsSection() {
                 "
               >
                 {/* LEFT */}
-
                 <div className="flex-1">
                   <p
                     className="
@@ -209,8 +197,10 @@ export default function RealEstateNewsSection() {
                   <h3
                     className="
                       max-w-4xl
+                      font-heading
                       text-[24px]
-                      leading-[1.2]
+                      leading-[1.1]
+                      tracking-[-0.02em]
                       text-[#f5ece0]
                       transition-colors
                       duration-500
@@ -218,16 +208,12 @@ export default function RealEstateNewsSection() {
 
                       md:text-[34px]
                     "
-                    style={{
-                      fontFamily: "'Cormorant Garamond', serif",
-                    }}
                   >
                     {item.title}
                   </h3>
                 </div>
 
-                {/* RIGHT */}
-
+                {/* RIGHT ICON */}
                 <motion.div
                   whileHover={{
                     rotate: 45,
@@ -256,8 +242,7 @@ export default function RealEstateNewsSection() {
           ))}
         </div>
 
-        {/* BOTTOM */}
-
+        {/* BOTTOM BUTTON */}
         <motion.div
           initial={{
             opacity: 0,
@@ -278,24 +263,34 @@ export default function RealEstateNewsSection() {
         >
           <button
             className="
+              group
+              flex
+              items-center
+              gap-3
               rounded-full
               border
-              border-[#c89e5070]
-              bg-[#c89e50]
-              px-8
-              py-4
-              text-[11px]
+              border-[#c6a56a]/40
+              bg-[#c6a56a]/10
+              px-6
+              py-3
+              text-[10px]
               font-medium
               uppercase
-              tracking-[0.25em]
-              text-black
+              tracking-[0.28em]
+              text-[#f6d28f]
+              backdrop-blur-xl
               transition-all
               duration-500
-              hover:scale-[1.04]
-              hover:bg-[#ddb56d]
+              hover:bg-[#d6b36a]
+              hover:text-black
             "
           >
             View All News
+
+            <ArrowUpRight
+              size={14}
+              className="transition-transform duration-500 group-hover:rotate-45"
+            />
           </button>
         </motion.div>
       </div>
