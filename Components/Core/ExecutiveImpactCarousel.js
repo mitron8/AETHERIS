@@ -51,7 +51,7 @@ const properties = [
     image:
       "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200",
     interior:
-      "https://images.unsplash.com/photo-1600607687644-c7f34b5f7b1b?q=80&w=1200",
+      "https://images.unsplash.com/photo-1615874694520-474822394e73?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: "6",
@@ -69,7 +69,7 @@ const properties = [
     image:
       "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?q=80&w=1200",
     interior:
-      "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?q=80&w=1200",
+      "https://images.unsplash.com/photo-1554995207-c18c203602cb?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
 ];
 

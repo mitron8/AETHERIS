@@ -116,7 +116,7 @@ export default function Hero() {
               delay: 0.6,
               duration: 0.8,
             }}
-            className="mt-8 flex flex-wrap items-center gap-10"
+            className="mt-8  flex flex-wrap items-center gap-10"
           >
             {[
               ["1200+", "Clients"],
